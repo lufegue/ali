@@ -1,0 +1,28 @@
+<div class="row text-center">
+  <div class="col-md-12">
+
+    <% flash.get('mensaje').forEach(function (msg) { %>
+    <div class="alert alert-info text-center" role="alert">
+      <%=msg%>
+    </div>
+    <% }) %>
+
+    <h2>Totales</h2>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Total Clientes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tclientes.forEach( registro => { %>
+          <tr>
+            <td scope="row"><%=registro.total_clientes%></td>
+          </tr>
+          <% }) %>
+        </tbody>
+    </table>
+
+  </div>
+</div>

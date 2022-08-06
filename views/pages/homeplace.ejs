@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <% flash.get('mensaje').forEach(function (msg) { %>
+    <div class="alert alert-info text-center" role="alert">
+      <%=msg%>
+    </div>
+    <% }) %>
+
+    <div class="welcome text-light">
+      <h1>
+        Bienvenido!
+      </h1>
+      <p>
+        Sistema disponible...
+      </p>
+    </div>
+  </div>
+</div>
