@@ -9,7 +9,13 @@ module.exports = {
 
   attributes: {
 
-    id_cli: { type: 'number'},
+    //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
+    //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
+    //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
+
+
+
+    //id_cli: { type: 'number'},
 
     fecha: { type: 'string' },
 
@@ -17,7 +23,29 @@ module.exports = {
 
     tiempo: { type: 'number' },
 
-    tiempo_max: { type: 'number' }
+    tiempo_max: { type: 'number' },
+
+    //id_rec: { type: 'number' },
+
+    //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
+    //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
+    //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
+
+
+    //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
+    //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
+    //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+
+    cliente: {
+      model: 'cliente',
+      columnName: 'id_cli'
+    },
+
+    recurso: {
+      model: 'recurso',
+      columnName: 'id_rec'
+    }
+
 
   },
 

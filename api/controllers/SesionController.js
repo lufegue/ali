@@ -5,6 +5,13 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
+
+ /**const path = require('path')
+ const fs = require('fs')
+ const Reserva = require('../models/Reserva')
+ const Cliente = require('../models/Cliente')
+**/
+
 module.exports = {
 
   registro: async (peticion, respuesta) => {
@@ -13,7 +20,6 @@ module.exports = {
 
   procesarRegistro: async (peticion, respuesta) => {
     let clientes = await Cliente.findOne({ alias: peticion.body.alias, email: peticion.body.email });
-    console.log('Procesar Registro: ',peticion)
     if (clientes) {
       peticion.addFlash('mensaje', 'Email o Alias duplicado')
       return respuesta.redirect("/registro");
@@ -58,8 +64,38 @@ module.exports = {
 
 
   homeplace: async (peticion, respuesta) => {
-    respuesta.view('pages/homeplace')
+
+    let consulta = `
+    SELECT
+      cli.nombre,
+      rec.nombre,
+      rec.aforo,
+      rec.identificador,
+      rec.funca,
+      res.fecha,
+      res.pedido,
+      res.tiempo,
+      res.tiempo_max
+    FROM
+      RESERVA res,
+      CLIENTE cli, 
+      RECURSO rec
+    WHERE res.id_cli = cli.id
+    AND res.id_rec = rec.id
+    AND rec.funca = true
+    LIMIT 3
+    `
+
+    await Reserva.query(consulta, [], (errores, resultado) => {
+      let reservas = resultado.rows
+      console.log(reservas)
+      return respuesta.view("pages/homeplace", { reservas })
+    })
+
+    
+      
   },
+
 
   listo: async (peticion, respuesta) => {
     respuesta.view('pages/listo')

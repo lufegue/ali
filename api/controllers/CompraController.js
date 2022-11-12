@@ -65,6 +65,16 @@ module.exports = {
 
   reservas: async (peticion, respuesta) => {
     if (!peticion.session || !peticion.session.cliente) {
+      //console.log("Pet:",peticion.session,"PetCli: ",peticion.session.cliente)
+      return respuesta.redirect("/")
+    }
+    let reservas = await Reserva.find();
+    //console.log("Pet:",peticion.session, "RESERVAS:", reservas, "SesionCliente: ", peticion.session.Cliente)
+    respuesta.view('pages/reservas', { reservas })
+  },
+
+  misReservas: async (peticion, respuesta) => {
+    if (!peticion.session || !peticion.session.cliente) {
       console.log("Pet:",peticion.session,"PetCli: ",peticion.session.cliente)
       return respuesta.redirect("/")
     }
@@ -72,6 +82,7 @@ module.exports = {
     console.log("Pet:",peticion.session, "RESERVAS:", reservas, "SesionCliente: ", peticion.session.Cliente)
     respuesta.view('pages/reservas', { reservas })
   },
+
 
   ordenDeCompra: async (peticion, respuesta) => {
     if (!peticion.session || !peticion.session.Cliente) {

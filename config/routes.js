@@ -48,8 +48,6 @@ module.exports.routes = {
 
   'GET /mis-reservas/:reservaId': 'CompraController.misReservas',
 
-
-
   'GET /agregar-carro-compra/:fotoId': 'CompraController.agregarCarroCompra',
 
   'GET /carro-de-compra': 'CompraController.carroCompra',
