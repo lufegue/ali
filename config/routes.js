@@ -44,7 +44,7 @@ module.exports.routes = {
 
   'POST /procesar-inicio-sesion': 'SesionController.procesarInicioSesion',
   
-  'GET /reservas': 'CompraController.reservas',
+  'GET /reservas': 'SesionController.reservas',
 
   'GET /mis-reservas/:reservaId': 'CompraController.misReservas',
 

@@ -83,6 +83,7 @@ module.exports = {
     WHERE res.id_cli = cli.id
     AND res.id_rec = rec.id
     AND rec.funca = true
+    ORDER BY res.id ASC
     LIMIT 3
     `
 
@@ -96,6 +97,40 @@ module.exports = {
       
   },
 
+  reservas: async (peticion, respuesta) => {
+    if (!peticion.session || !peticion.session.cliente) {
+      return respuesta.redirect("/")
+    }
+    let consulta = `
+    SELECT
+      res.id,
+      cli.nombre,
+      rec.nombre,
+      rec.aforo,
+      rec.identificador,
+      rec.funca,
+      to_date(res.fecha, 'YYYY-MM-DD') as fecha,
+      res.pedido,
+      res.tiempo,
+      res.tiempo_max
+    FROM
+      RESERVA res,
+      CLIENTE cli, 
+      RECURSO rec
+    WHERE res.id_cli = cli.id
+    AND res.id_rec = rec.id
+    AND rec.funca = true
+    ORDER BY res.id ASC
+    LIMIT 3
+    `
+
+    await Reserva.query(consulta, [], (errores, resultado) => {
+      let reservas = resultado.rows
+      console.log(reservas)
+      return respuesta.view("pages/reservas", { reservas })
+    })
+
+  },
 
   listo: async (peticion, respuesta) => {
     respuesta.view('pages/listo')
