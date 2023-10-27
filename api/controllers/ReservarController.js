@@ -63,6 +63,58 @@ module.exports = {
     return respuesta.redirect("/")
   },
 
+  reservar: async (peticion, respuesta) => {
+
+    let consulta = `
+    SELECT
+      cli.id,
+      cli.nombre,
+      rec.id,
+      rec.nombre,
+      rec.aforo,
+      rec.identificador,
+      rec.funca,
+      res.fecha,
+      res.pedido,
+      res.tiempo,
+      res.tiempo_max
+    FROM
+      RESERVA res,
+      CLIENTE cli, 
+      RECURSO rec
+    WHERE res.id_cli = cli.id
+    AND res.id_rec = rec.id
+    AND rec.funca = true
+    ORDER BY res.id ASC
+    LIMIT 3
+    `
+
+    await Reserva.query(consulta, [], (errores, resultado) => {
+      let reservas = resultado.rows
+      console.log(reservas)
+      return respuesta.view("pages/reservar", { reservas })
+    })
+
+
+  },
+
+  procesarReserva: async (peticion, respuesta) => {
+
+    let turno = await Reserva.create({
+      cliente: peticion.session.cliente.id,
+      fecha: new Date(),
+      pedido: 'TEXT1',
+      tiempo: 1,
+      tiempo_max: 1,
+      recurso: id
+    })
+    peticion.addFlash('mensaje', 'La reserva esta guardada')
+    console.log(turno)
+    return respuesta.redirect("/")
+
+  },
+
+
   ordenDeCompra: async (peticion, respuesta) => {
     if (!peticion.session || !peticion.session.Cliente) {
       return respuesta.redirect("/")

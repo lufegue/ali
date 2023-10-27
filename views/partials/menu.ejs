@@ -14,17 +14,16 @@
       <span class="px-2 text-white">
         <%=session.cliente.nombre%></span>
     </li>
-    <li class="nav-item">
-      <a class="btn btn-light mx-2 text-dark" href="/reservas"> <i class="fas fa-list-check"></i></a>
+    <li class="nav-item" data-bs-toggle="tooltip" title="Ir a todas mis reservas">
+      <a class="btn btn-light mx-2 text-dark" href="/reservas"> <i class="fa-solid fa-calendar-days"></i></a>
     </li>
-    <li class="nav-item">
-      <a class="btn btn-light mx-2 text-dark" href="/lista-deseo"><i class="fas fa-list-ul"></i></a>
+    <li class="nav-item" data-bs-toggle="tooltip" title="Ingresar nueva reserva">
+      <a class="btn btn-light mx-2 text-dark" href="/reservar"><i class="fa-solid fa-calendar-check"></i></a>
     </li>
-    <li class="nav-item">
-      <a class="btn btn-light mx-2 text-dark" href="/carro-de-compra"><i class="fa-solid fa-receipt"></i><span class="badge">
-          <%=(session.carroCompra) ? session.carroCompra.length : 0%></span></a>
+    <li class="nav-item" data-bs-toggle="tooltip" title="Cancelar pagos pendientes">
+      <a class="btn btn-light mx-2 text-dark" href="/pagar"><i class="fa-solid fa-money-bill-1"></i></a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" data-bs-toggle="tooltip" title="Abandonar el sistema">
       <a class="btn btn-light mx-2 text-dark" href="/cerrar-sesion"><i class="fa-solid fa-right-from-bracket"></i></a>
     </li>
 
@@ -35,16 +34,8 @@
           <%=session.admin.nombre%></span>
       </li>
       <li class="nav-item">
-        <a class="btn btn-light mx-2 text-dark" href="/admin/Principal">Principal</a>
+        <a class="btn btn-light mx-2 text-dark" href="/admin/AddRecursos">Recursos</a>
       </li>
-      <li class="nav-item">
-        <a class="btn btn-light mx-2 text-dark" href="/admin/lista-cliente">Clientes</a>
-      </li>
-      <li class="nav-item">
-        <a class="btn btn-light mx-2 text-dark" href="/admin/lista-admin">Administradores</a>
-      </li>
-      <li class="nav-item">
-        <a class="btn btn-light mx-2 text-dark" href="/admin/reporte">Dashboard</a>
       </li>
           <li class="nav-item">
       <a class="btn btn-light mx-2 text-dark" href="/admin/cerrar-sesion">Cerrar Sesión</a>

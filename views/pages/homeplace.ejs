@@ -9,37 +9,26 @@
         <div class="container">
           <div class="row">
             <div class="col-12 text-center">
-              <h2>Mis reservas</h2>
+              <legend>Mis reservas</legend>
             </div>
-            <div class="col-md-12 my-2 bg-success ">
-              <table class="table">
-                <tbody>
-                  <% reservas.forEach( reserva=> { %>
-                      <tr>
-                        <td>
-                          <div class="col-md-4 my-2">
-                            <div class="card">
-                              <h5 class="card-header bg-info text-white text-center">
-                                <%=reserva.nombre%> Nro.<%=reserva.identificador%><br>
-                              </h5>
-                              <div class="card-body">
-                                <p class="card-text">
-                                  ID: <%=reserva.id%><br>
-                                  Fecha: <%=reserva.fecha%><br>
-                                  Pedido: <%=reserva.pedido%><br>
-                                  Tiempo solicitado: <%=reserva.tiempo%> Hora(s)<br>
-                                </p>
-                                <h5 class="card-footer bg-info text-white text-center">
-                                  Aforo permitido: <%=reserva.aforo%><br>
-                                </h5>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </div>
-                    <% }) %>
-                </tbody>
-              </table>
+            <div class="col-md-12 my-2 bg-success row">
+              <% reservas.forEach( reserva=> { %>
+                <div class="col-md-4 my-2">
+                  <div class="card">
+                    <h5 class="card-header bg-secondary text-white text-center">
+                      <%=reserva.nombre%> Nro.<%=reserva.identificador%><br>
+                    </h5>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text">
+                      Fecha: <%=reserva.fecha%><br>
+                      Pedido: <%=reserva.pedido%><br>
+                      Tiempo solicitado: <%=reserva.tiempo%> Hora(s)<br>
+                      Aforo permitido: <%=reserva.aforo%><br>
+                    </p>
+                  </div>
+                </div>
+                <% }) %>
             </div>
           </div>
         </div>

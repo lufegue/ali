@@ -62,12 +62,13 @@ module.exports = {
     }
   },
 
-
   homeplace: async (peticion, respuesta) => {
 
     let consulta = `
     SELECT
+      cli.id,
       cli.nombre,
+      rec.id,
       rec.nombre,
       rec.aforo,
       rec.identificador,
@@ -89,7 +90,7 @@ module.exports = {
 
     await Reserva.query(consulta, [], (errores, resultado) => {
       let reservas = resultado.rows
-      console.log(reservas)
+      //console.log(reservas)
       return respuesta.view("pages/homeplace", { reservas })
     })
 
@@ -103,13 +104,13 @@ module.exports = {
     }
     let consulta = `
     SELECT
-      res.id,
       cli.nombre,
       rec.nombre,
       rec.aforo,
       rec.identificador,
       rec.funca,
-      to_date(res.fecha, 'YYYY-MM-DD') as fecha,
+      res.fecha,
+      res.id,
       res.pedido,
       res.tiempo,
       res.tiempo_max
@@ -126,10 +127,26 @@ module.exports = {
 
     await Reserva.query(consulta, [], (errores, resultado) => {
       let reservas = resultado.rows
-      console.log(reservas)
+      //console.log(reservas)
       return respuesta.view("pages/reservas", { reservas })
     })
 
+  },
+
+  misReservas: async (peticion, respuesta) => {
+    if (!peticion.session || !peticion.session.cliente) {
+      return respuesta.redirect("/")
+    }
+    let recursos = await Recurso.find()
+    respuesta.view('pages/recurso', { recursos })
+  },
+  
+  misRecursos: async (peticion, respuesta) => {
+    if (!peticion.session || !peticion.session.cliente) {
+      return respuesta.redirect("/")
+    }
+    let recursos = await Recurso.find()
+    respuesta.view('pages/recurso', { recursos })
   },
 
   listo: async (peticion, respuesta) => {

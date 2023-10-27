@@ -21,7 +21,7 @@
       <tbody>
           <% reservas.forEach( reserva => { %>
             <tr>
-            <td scope="row"><a href="/mis-reservas/<%=reserva.id%>"><%=reserva.nombre%> Nro. <%=reserva.identificador%></a></td>
+            <td scope="row"><a href="/mis-reservas/<%=reserva.id%>"><%=reserva.nombre%></a></td>
             <td scope="row"><%=reserva.fecha%></td>
             <td scope="row"><%=reserva.tiempo%></td>
             <td scope="row"><%=reserva.pedido%></td>

@@ -38,15 +38,19 @@ module.exports.routes = {
   
   'GET /cerrar-sesion': 'SesionController.cerrarSesion',
 
+  'POST /procesar-inicio-sesion': 'SesionController.procesarInicioSesion',
+
   'GET /listo': 'SesionController.listo',
 
   'GET /homeplace': 'SesionController.homeplace',
 
-  'POST /procesar-inicio-sesion': 'SesionController.procesarInicioSesion',
+  'POST /procesar-reserva': 'ReservarController.procesarReserva',
   
   'GET /reservas': 'SesionController.reservas',
 
-  'GET /mis-reservas/:reservaId': 'CompraController.misReservas',
+  'GET /mis-reservas/:reservaId': 'SesionController.misReservas',
+
+  'GET /mis-recursos/:recursoId': 'SesionController.misRecursos',
 
   'GET /agregar-carro-compra/:fotoId': 'CompraController.agregarCarroCompra',
 
@@ -54,10 +58,8 @@ module.exports.routes = {
 
   'GET /eliminar-carro-compra/:fotoId': 'CompraController.eliminarCarroCompra',
 
-  'GET /comprar': 'CompraController.comprar',
+  'GET /reservar': 'ReservarController.reservar',
 
-  'GET /top-vendidas': 'PrincipalController.topVendidas',
-  
   'GET /agregar-lista-deseo/:fotoId': 'CompraController.agregarListaDeseo',
 
   'GET /lista-deseo': 'CompraController.listaDeseo',
@@ -95,8 +97,6 @@ module.exports.routes = {
   'GET /admin/desactivar-cliente/:clienteId': 'AdminController.desactivarCliente',
 
   'GET /admin/activar-cliente/:clienteId': 'AdminController.activarCliente',
-
-  'GET /admin/ordenes-clientes/:clienteId': 'AdminController.ordenesClientes'
 
   /***************************************************************************
   *                                                                          *
