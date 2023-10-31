@@ -1,7 +1,7 @@
 {
-  "name": "Ali",
+  "name": "EstarSano",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
@@ -12,7 +12,6 @@
     "async": "2.0.1",
     "grunt": "1.0.1",
     "nodemon": "^1.18.5",
-    "postgresql": "0.0.1",
     "sails": "^1.0.2",
     "sails-hook-flash": "^0.2.2",
     "sails-hook-grunt": "^3.0.2",
@@ -33,7 +32,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/lufegue/ali.git"
+    "url": "git://github.com/lufegue/EstarSano.git"
   },
   "author": "Luis Felipe Guevara",
   "license": "",

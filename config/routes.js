@@ -26,77 +26,15 @@ module.exports.routes = {
 
   'GET /': 'PrincipalController.inicio',
 
+  'GET /productos': 'PrincipalController.productos',
+
+  'GET /testimonios': 'PrincipalController.testimonios',
+
+  'GET /contactanos': 'PrincipalController.contactanos',
+
   '/acerca-de': {
     view: 'pages/acerca_de'
-  },
-
-  'GET /registro': 'SesionController.registro',
-  
-  'POST /procesar-registro': 'SesionController.procesarRegistro',
-  
-  'GET /inicio-sesion': 'SesionController.inicioSesion',
-  
-  'GET /cerrar-sesion': 'SesionController.cerrarSesion',
-
-  'POST /procesar-inicio-sesion': 'SesionController.procesarInicioSesion',
-
-  'GET /listo': 'SesionController.listo',
-
-  'GET /homeplace': 'SesionController.homeplace',
-
-  'POST /procesar-reserva': 'ReservarController.procesarReserva',
-  
-  'GET /reservas': 'SesionController.reservas',
-
-  'GET /mis-reservas/:reservaId': 'SesionController.misReservas',
-
-  'GET /mis-recursos/:recursoId': 'SesionController.misRecursos',
-
-  'GET /agregar-carro-compra/:fotoId': 'CompraController.agregarCarroCompra',
-
-  'GET /carro-de-compra': 'CompraController.carroCompra',
-
-  'GET /eliminar-carro-compra/:fotoId': 'CompraController.eliminarCarroCompra',
-
-  'GET /reservar': 'ReservarController.reservar',
-
-  'GET /agregar-lista-deseo/:fotoId': 'CompraController.agregarListaDeseo',
-
-  'GET /lista-deseo': 'CompraController.listaDeseo',
-
-  'GET /eliminar-lista-deseo/:fotoId': 'CompraController.eliminarListaDeseo',
-
-  'GET /admin/inicio-sesion': 'AdminController.inicioSesion',
-
-  'POST /admin/procesar-inicio-sesion': 'AdminController.procesarInicioSesion',
-
-  'GET /admin/principal': 'AdminController.principal',
-
-  'GET /admin/cerrar-sesion': 'AdminController.cerrarSesion',
-
-  'GET /admin/agregar-foto': 'AdminController.agregarFoto',
-
-  'POST /admin/procesar-agregar-foto': 'AdminController.procesarAgregarFoto',
-
-  'GET /admin/desactivar-foto/:fotoId': 'AdminController.desactivarFoto',
-
-  'GET /admin/activar-foto/:fotoId': 'AdminController.activarFoto',
-
-  'GET /admin/lista-cliente': 'AdminController.listaCliente',
-
-  'GET /admin/lista-cliente/:ordenId': 'CompraController.ordenDeCompra',
-
-  'GET /admin/lista-admin': 'AdminController.listaAdmin',
-
-  'GET /admin/reporte': 'AdminController.reporte',
-
-  'GET /admin/desactivar-admin/:adminId': 'AdminController.desactivarAdmin',
-
-  'GET /admin/activar-admin/:adminId': 'AdminController.activarAdmin',
-
-  'GET /admin/desactivar-cliente/:clienteId': 'AdminController.desactivarCliente',
-
-  'GET /admin/activar-cliente/:clienteId': 'AdminController.activarCliente',
+  }
 
   /***************************************************************************
   *                                                                          *

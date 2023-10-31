@@ -1,53 +1,21 @@
 <nav class="navbar navbar-expand navbar-dark bg-success">
+
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
       <a class="nav-link" href="/">Inicio</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="/productos">Productos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/testimonios">Testimonios</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/contactanos">Contactanos</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="/acerca-de">Acerca de</a>
     </li>
   </ul>
-  <ul class="navbar-nav mr-2">
 
-    <% if (session && session.cliente) { %>
-    <li class="nav-item my-auto"><i class="fa-solid fa-user-check"></i>
-      <span class="px-2 text-white">
-        <%=session.cliente.nombre%></span>
-    </li>
-    <li class="nav-item" data-bs-toggle="tooltip" title="Ir a todas mis reservas">
-      <a class="btn btn-light mx-2 text-dark" href="/reservas"> <i class="fa-solid fa-calendar-days"></i></a>
-    </li>
-    <li class="nav-item" data-bs-toggle="tooltip" title="Ingresar nueva reserva">
-      <a class="btn btn-light mx-2 text-dark" href="/reservar"><i class="fa-solid fa-calendar-check"></i></a>
-    </li>
-    <li class="nav-item" data-bs-toggle="tooltip" title="Cancelar pagos pendientes">
-      <a class="btn btn-light mx-2 text-dark" href="/pagar"><i class="fa-solid fa-money-bill-1"></i></a>
-    </li>
-    <li class="nav-item" data-bs-toggle="tooltip" title="Abandonar el sistema">
-      <a class="btn btn-light mx-2 text-dark" href="/cerrar-sesion"><i class="fa-solid fa-right-from-bracket"></i></a>
-    </li>
-
-
-    <% } else if (session && session.admin) { %>
-      <li class="nav-item my-auto">
-        <span class="px-2 text-white">
-          <%=session.admin.nombre%></span>
-      </li>
-      <li class="nav-item">
-        <a class="btn btn-light mx-2 text-dark" href="/admin/AddRecursos">Recursos</a>
-      </li>
-      </li>
-          <li class="nav-item">
-      <a class="btn btn-light mx-2 text-dark" href="/admin/cerrar-sesion">Cerrar Sesión</a>
-    </li>
-
-    <% } else { %>
-    <li class="nav-item">
-      <a class="btn btn-light text-dark" href="/registro">Registro</a>
-    </li>
-    <li class="nav-item">
-      <a class="btn btn-light mx-2 text-dark" href="/inicio-sesion">Inicio de Sesión</a>
-    </li>
-    <% } %>
-  </ul>
 </nav>

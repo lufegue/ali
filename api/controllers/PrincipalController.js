@@ -8,10 +8,20 @@
 module.exports = {
 
   inicio: async (peticion, respuesta) => {
-    let recursos = await Recurso.find({ funca: true })
-    //console.log("inicio principalcontroler",peticion)
-    respuesta.view('pages/principal', {recursos})
+    respuesta.view('pages/principal', {})
   },
+
+  productos: async (peticion, respuesta) => {
+    respuesta.view('pages/productos',{})
+  },
+
+  testimonios: async (peticion, respuesta) => {
+    respuesta.view('pages/testimonios',{})
+  },
+
+  contactanos: async (peticion, respuesta) => {
+    respuesta.view('pages/contactanos',{})
+  }
 
 
 };
